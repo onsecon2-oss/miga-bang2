@@ -104,3 +104,14 @@ h2.hd.ko{font-family:var(--body);font-weight:500;font-size:clamp(26px,3.6vw,50px
 .hero2 figure img{-webkit-mask-image:none;mask-image:none}
 
 .edu{list-style:none}.edu li{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:24px 0;border-top:1px solid var(--hair)}.edu li:last-child{border-bottom:1px solid var(--hair)}.edu .hud{color:var(--accent);padding-top:6px}.edu b{display:block;font-weight:500;font-size:clamp(18px,1.8vw,24px);line-height:1.35}.edu div span{display:block;margin-top:6px;color:var(--dim);font-size:15px}
+
+/* readability */
+:root{--dim:#B8AFA0}
+body{font-weight:400;font-size:17px;line-height:1.85}
+.hud{font-size:12.5px;letter-spacing:.1em}
+.note{font-size:16px;line-height:1.7}
+.facts .s,.tbl .d{font-size:15px}
+.tbl td{font-size:16.5px}
+.rows dd{font-size:16.5px}
+.edu .flag{font-size:28px;line-height:1;letter-spacing:0}
+@media (max-width:860px){body{font-size:17px}.hud{font-size:12px}}

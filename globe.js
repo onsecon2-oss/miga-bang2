@@ -79,3 +79,5 @@
   ['touchstart','touchend','scroll','click'].forEach(e=>window.addEventListener(e,kick,{passive:true}));
   setInterval(kick,700);
 })();
+
+;(function(){document.querySelectorAll('video[data-start]').forEach(v=>{const s=+v.dataset.start;const go=()=>{try{if(v.currentTime<s-0.2)v.currentTime=s}catch(e){}};v.addEventListener('loadedmetadata',go);v.addEventListener('play',go);v.addEventListener('timeupdate',go);});})();
