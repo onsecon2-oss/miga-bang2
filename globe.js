@@ -73,3 +73,9 @@
   const loop=()=>{shown+=(prog()-shown)*.14;render(shown);requestAnimationFrame(loop)};
   requestAnimationFrame(loop);
 })();
+
+;(function(){
+  const kick=()=>{document.querySelectorAll('.jb .media .m.on video').forEach(v=>{v.muted=true;v.setAttribute('playsinline','');if(v.paused){const p=v.play();p&&p.catch&&p.catch(()=>{})}})};
+  ['touchstart','touchend','scroll','click'].forEach(e=>window.addEventListener(e,kick,{passive:true}));
+  setInterval(kick,700);
+})();
