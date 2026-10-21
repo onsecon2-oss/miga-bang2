@@ -1,0 +1,41 @@
+/* B안: 지도 위의 경로. 상태 값 = 스크롤 진행률 -> 도시, 좌표, 지구본 회전, 경로 */
+.jb{position:relative;height:700vh}
+.jb .stick{position:sticky;top:0;height:100svh;overflow:hidden}
+.jb .stage{position:absolute;inset:var(--head) var(--frame) var(--frame);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.jb .globe{position:relative;display:grid;place-items:center;border-right:1px solid var(--hair);overflow:hidden}
+.jb .globe svg{width:min(78vh,100%);height:auto;overflow:visible}
+.jb .land{fill:rgba(239,232,218,.07);stroke:rgba(239,232,218,.22);stroke-width:.6}
+.jb .grat{fill:none;stroke:rgba(239,232,218,.07);stroke-width:.5}
+.jb .sph{fill:none;stroke:rgba(239,232,218,.3);stroke-width:.8}
+.jb .route{fill:none;stroke:var(--accent);stroke-width:1.6}
+.jb .routeghost{fill:none;stroke:rgba(217,145,95,.25);stroke-width:1;stroke-dasharray:2 4}
+.jb .pt{fill:var(--bg);stroke:var(--ink);stroke-width:1.2}
+.jb .pt.on{fill:var(--accent);stroke:var(--accent)}
+.jb .ring{fill:none;stroke:var(--accent);stroke-width:1}
+.jb .g-hud{position:absolute;left:24px;top:22px;display:grid;gap:6px}
+.jb .g-hud2{position:absolute;right:24px;top:22px;text-align:right;display:grid;gap:6px}
+.jb .city{position:absolute;left:24px;bottom:84px;font-family:var(--display);font-size:clamp(34px,6vw,92px);line-height:1;text-transform:uppercase;letter-spacing:.02em;max-width:90%}
+.jb .city small{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--dim);margin-bottom:12px}
+.jb .side{position:relative;display:grid;grid-template-rows:1fr auto;padding:24px 24px 84px}
+.jb .media img.contain{object-fit:contain;background:#0b0b0a}
+.jb .media{position:relative;min-height:0}
+.jb .media .m{position:absolute;inset:0;opacity:0;transition:opacity .7s}
+.jb .media .m.on{opacity:1}
+.jb .media img,.jb .media video{width:100%;height:100%;object-fit:cover;filter:contrast(1.04) saturate(.9)}
+.jb .media .tag{position:absolute;left:10px;bottom:10px;background:rgba(10,10,9,.7);padding:3px 8px}
+.jb .copy{padding-top:20px}
+.jb .copy .t{font-family:var(--display);font-size:clamp(19px,1.9vw,26px);line-height:1.35;margin:6px 0 6px;min-height:2.7em}
+.jb .copy .d{color:var(--dim);font-size:15px;min-height:3em}
+.jb .ticks{position:absolute;left:24px;right:24px;bottom:24px;display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.jb .tick{border-top:1px solid var(--hair);padding-top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);position:relative}
+.jb .tick.on{color:var(--ink)}
+.jb .tick.on::before,.jb .tick.done::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--accent)}
+.jb .tick.done{color:var(--ink)}
+
+@media (max-width:860px){
+  .jb .stage{grid-template-columns:1fr;grid-template-rows:46% 1fr}
+  .jb .globe{border-right:0;border-bottom:1px solid var(--hair)}
+  .jb .city{bottom:14px;font-size:34px}
+  .jb .ticks{display:none}
+  .jb .side{padding:14px}
+}
