@@ -17,7 +17,9 @@
   const gPts=svg.append('g');
   const plane=svg.append('g').attr('class','plane');
   plane.append('path').attr('d','M0,-12 L2.8,-3.4 L12,2.2 L12,4.6 L2.8,2.6 L1.7,8.6 L5.2,11 L5.2,12.6 L0,11.2 L-5.2,12.6 L-5.2,11 L-1.7,8.6 L-2.8,2.6 L-12,4.6 L-12,2.2 L-2.8,-3.4 Z');
-  const pts=S.map(s=>[s.lon,s.lat]);
+  const flagG=svg.append('g').attr('class','flagtag');flagG.append('rect').attr('x',-22).attr('y',-17).attr('width',44).attr('height',34).attr('rx',17).attr('fill','rgba(10,10,9,.78)').attr('stroke','rgba(239,232,218,.35)');const flagT=flagG.append('text').attr('text-anchor','middle').attr('dominant-baseline','central').attr('y',1).style('font-size','22px');
+const flagOf=s=>s.cityEn==='Seoul'?'\u{1F1F0}\u{1F1F7}':'\u{1F1E9}\u{1F1EA}';
+const pts=S.map(s=>[s.lon,s.lat]);
   const ticks=document.querySelectorAll('.jb .tick');
   const $=q=>document.querySelector(q);
   const el={roman:$('#h-roman'),coord:$('#h-coord'),city:$('#h-city'),cityEn:$('#h-cityen'),title:$('#c-title'),desc:$('#c-desc'),prog:$('#h-prog')};
@@ -54,6 +56,7 @@
     let dx=q[0]-cp[0],dy=q[1]-cp[1];if(f>=.96){dx=-dx;dy=-dy}
     if(Math.hypot(dx,dy)>.4)lastAng=Math.atan2(dy,dx)*180/Math.PI+90;
     plane.attr('transform','translate('+cp[0]+','+cp[1]+') rotate('+lastAng+') scale(1.15)');
+    flagT.text(flagOf(S[Math.min(N-1,i+1)]));flagG.attr('transform','translate('+(cp[0]+30)+','+(cp[1]-26)+')');
     el.coord.innerHTML='<b>'+fmt(c[1],'N','S')+'</b> · <b>'+fmt(c[0],'E','W')+'</b>';
     el.prog.textContent=String(Math.round(clamp(p,0,1)*100)).padStart(3,'0')+' / 100';
     if(idx!==cur){cur=idx;const s=S[idx];
