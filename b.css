@@ -39,3 +39,11 @@
   .jb .ticks{display:none}
   .jb .side{padding:14px}
 }
+
+@media (max-width:860px){
+  .jb .stage{grid-template-rows:36% 1fr}
+  .jb .media img,.jb .media video{object-fit:contain;background:#0b0b0a}
+  .jb .copy{padding-top:12px}
+  .jb .copy .t{min-height:0;font-size:18px}
+  .jb .copy .d{min-height:0;font-size:14px}
+}
